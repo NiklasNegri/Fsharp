@@ -63,7 +63,7 @@ let squareAndDouble x =
 
 let downloadManyFiles() =
     async {
-        let! contetsA = downloadFile "source/a.txt"
+        let! contentsA = downloadFile "source/a.txt"
         do! uploadFile contentsA "target/a.txt"
         return "OK"
     }
@@ -84,3 +84,88 @@ let downloadManyFiles() =
     * code generation
     * etc etc
     *)
+
+// generate a sequence/enumerable
+
+seq {
+    yield! [1..10]
+    for i in [1..10] do yield square i
+}
+
+// create a dummy db
+
+let db =
+    {| Student = [
+        {| StudentId=1; Name="Alice" |}
+        {| StudentId=2; Name="Bob"|}
+    ] |}
+
+// query the db
+
+query {
+    for student in db.Student do
+    where (student.StudentId > 4)
+    sortBy student.Name
+    select student
+}
+
+
+// ===================================
+// Introducting the pipeline operator
+// ===================================
+
+let add42 x = x + 42
+
+// instead of
+// let squareDoubleAdd42 x =
+//      add42(double(square(x)))
+
+let squareAndDouble42 x =
+    x |> square |> double |> add42
+
+(*
+    feed x into square function then
+
+                feed square functions output into double function then
+
+                          feed that output into add42 function
+*)
+
+// Pipelines compared to LINQ
+
+open System // open == "using"
+open System.Linq 
+
+[1..10]
+    .Select(fun x -> x *2) // lambda syntax in F#
+    .Where(fun x-> x <= 6)
+    .Select(fun x -> String.Format($"x={x}"))
+    .ToArray()
+
+// LINQ is not really used in F# since its already built-in with the pipeline functions
+
+[1..10]
+|> List.map (fun x -> x * 2)
+|> List.filter (fun x -> x <= 6)
+|> List.map (sprintf "x=%i")
+
+// pipelies are more flexible because you dont need
+// extension methods, you can stick any function inside the pipeline if you wish
+
+let product aList =
+    List.fold (*) 1 aList
+
+let logToConsole input =
+    printfn "input=%i" input
+    input
+
+[1..10]
+|> List.map (fun x -> x * 2)
+|> List.filter (fun x -> x <= 6)
+|> product
+|> logToConsole
+
+// as long as the output of the previous function matches the input of the upcoming function
+// it works great, for example we are taking a list of integers, filtering out all entries
+// that are less or equal to 6 and then sending them into the functions above which
+// take an integer as an input and output an integer
