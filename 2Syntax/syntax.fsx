@@ -173,6 +173,7 @@ let logToConsole input =
 
 
 (* ===============================
+
     SOLID works well with functional programming, SOLID stands for:
 
     *S* Single-responsilibity principle (SRP): every class should only have one responsibility.
@@ -188,6 +189,8 @@ let logToConsole input =
 
     Functions adhere to the single-responsibility principle since a function is as close to one responsibility as possible
     Pipeline-oriented programming is a good technique for adhereing to the open-closed principle!
+
+   ===============================
 *)
 
 // some dummy functions
@@ -215,3 +218,40 @@ let myImportantWorkflow query =
     |> log "after processing"
     |> JsonSerializer.Serialize
     |> saveToDb
+
+
+// ====================
+// How type interfaces work
+// ====================
+
+// with type annotations
+let add2 (x:int) :int = x + 2
+//          ^ type annotation (type comes AFTER parameter name)
+//                  ^ type annotation
+
+// without type annotations
+let add3 x = x + 3
+
+
+// takes a function (that takes an int and returns a string) and an integer as input and returns a string from them
+let doSomething f x =
+    let y = f (x + 1)
+    "hello" + y
+
+sprintf "%s" "string"
+
+// create the function that takes an int and returns a string
+// sprintf returns in string form "%i" for ints
+let intToStr i = 
+    sprintf "%i" i
+
+doSomething intToStr 42
+
+doSomething (sprintf "%i") 5
+
+
+sprintf ("%i") 5
+|> doSomething
+
+
+
