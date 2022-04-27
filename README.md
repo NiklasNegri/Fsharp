@@ -8,3 +8,6 @@
  2nd video:
  "Introduction [1 of 12] | F# for Beginners"
  https://www.youtube.com/watch?v=yGzu0iDuMNQ&list=PLdo4fOcmZ0oUFghYOp89baYFBTGxUkC7Z&t=64s
+
+ SimpleCalculator
+ https://docs.microsoft.com/en-us/learn/modules/fsharp-first-program/1-introduction

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WsGfJYbPOEXS+cpclHbl41cBnsve4l9irAgSPHn/cJSssmiV7RHfdaBHTG8lp88s76dB/Jt7YyOpzJz1FlU6KQ==",
+  "dgSpecHash": "pC47WyxGcAXh9y6HauYDSm1s7hTedzfYnQ60J4UBAYZvx27AZv7reICnkMQp2UBFjnppXYL3MqqIIOTa8ntuLA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\Documents\\Fsharp\\Variables\\Variables.fsproj",
+  "projectFilePath": "C:\\Users\\user\\Documents\\Fsharp\\Simplesumcalculator\\variables\\Variables.fsproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\fsharp.core\\6.0.1\\fsharp.core.6.0.1.nupkg.sha512"
   ],

@@ -118,11 +118,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\Documents\\Fsharp\\Variables\\Variables.fsproj",
+      "projectUniqueName": "C:\\Users\\user\\Documents\\Fsharp\\Simplesumcalculator\\variables\\Variables.fsproj",
       "projectName": "Variables",
-      "projectPath": "C:\\Users\\user\\Documents\\Fsharp\\Variables\\Variables.fsproj",
+      "projectPath": "C:\\Users\\user\\Documents\\Fsharp\\Simplesumcalculator\\variables\\Variables.fsproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\Documents\\Fsharp\\Variables\\obj\\",
+      "outputPath": "C:\\Users\\user\\Documents\\Fsharp\\Simplesumcalculator\\variables\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
