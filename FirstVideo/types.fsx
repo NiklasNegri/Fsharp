@@ -60,6 +60,7 @@ For Cards we need a card type and card number
 How to implement this?
 *)
 
+// the module groups together associated types
 module PaymentDomain =
 
     type EmailAddress = string
