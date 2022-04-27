@@ -4,3 +4,6 @@
  1st video:
 "Starting Your F# Journey | #dotNETConf: Focus on F#"
  https://www.youtube.com/watch?v=kSfi6kcZrzM
+
+ 2nd video:
+ ""
