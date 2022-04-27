@@ -169,3 +169,49 @@ let logToConsole input =
 // it works great, for example we are taking a list of integers, filtering out all entries
 // that are less or equal to 6 and then sending them into the functions above which
 // take an integer as an input and output an integer
+
+
+
+(* ===============================
+    SOLID works well with functional programming, SOLID stands for:
+
+    *S* Single-responsilibity principle (SRP): every class should only have one responsibility.
+
+    *O* Open-closed principle (OCP): a class/entity should be open for extension, but closed for modification.
+
+    *L* Liskov substitution principle (LSP): Objects of a class should be able to be replaced by objects of a subclass
+    without changing the function of the program.
+
+    *I* Interface segregation principle (ISP): More specific interfaces are better than one general-purpose interface.
+
+    *D* Dependancy inversion principle (DIP): Classes should depend on abstraction instead of concretions.  
+
+    Functions adhere to the single-responsibility principle since a function is as close to one responsibility as possible
+    Pipeline-oriented programming is a good technique for adhereing to the open-closed principle!
+*)
+
+// some dummy functions
+let log label input = failwith "not implemented"
+let checkAuthorization query = failwith "not implemented"
+let loadFromDb (query:string) :string = failwith "not implemented"
+let saveToDb input :unit = failwith "not implemented"
+
+open System.Text.Json
+
+
+// integration test the entire function
+let myImportantWorkflow query =
+    // Oninion architecture: I/O at edges
+    query
+    |> loadFromDb
+    |> JsonSerializer.Deserialize
+    |> log "before processing"
+
+    // pure domain logic (this is what you unit test)
+    |> List.map (fun x -> x * 2)
+    |> List.filter (fun x -> x <= 6)
+
+    // I/O
+    |> log "after processing"
+    |> JsonSerializer.Serialize
+    |> saveToDb
