@@ -61,10 +61,11 @@ let squareAndDouble x =
 // instances where { } are used
 // the curly bracers after async is a computation expression
 
+
 let downloadManyFiles() =
     async {
-        let! contentsA = downloadFile "source/a.txt"
-        do! uploadFile contentsA "target/a.txt"
+        // let! contentsA = downloadFile "source/a.txt"
+        // do! uploadFile contentsA "target/a.txt"
         return "OK"
     }
 
@@ -232,26 +233,22 @@ let add2 (x:int) :int = x + 2
 // without type annotations
 let add3 x = x + 3
 
+// ============
+// function syntax cont
+// ============
+
 
 // takes a function (that takes an int and returns a string) and an integer as input and returns a string from them
 let doSomething f x =
     let y = f (x + 1)
     "hello" + y
 
-sprintf "%s" "string"
-
 // create the function that takes an int and returns a string
 // sprintf returns in string form "%i" for ints
 let intToStr i = 
     sprintf "%i" i
 
-doSomething intToStr 42
+doSomething intToStr 5
 
+// same thing just calling sprintf function directly
 doSomething (sprintf "%i") 5
-
-
-sprintf ("%i") 5
-|> doSomething
-
-
-
